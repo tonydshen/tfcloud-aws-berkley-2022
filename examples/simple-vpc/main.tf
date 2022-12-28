@@ -1,10 +1,11 @@
 provider "aws" {
   region = local.region
+  profile = "berkley"
 }
 
 locals {
   name   = "ex-${replace(basename(path.cwd), "_", "-")}"
-  region = "eu-west-1"
+  region = "us-east-1"
 
   tags = {
     Example    = local.name
@@ -39,6 +40,6 @@ module "vpc" {
   tags = local.tags
 
   vpc_tags = {
-    Name = "vpc-name"
+    Name = "simple-vpc"
   }
 }
